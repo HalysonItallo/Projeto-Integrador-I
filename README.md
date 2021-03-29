@@ -4,18 +4,22 @@
 - Eli Ruan dos Santos Carvalho (DB II, ES II, Prog. Internet I)
 - Halyson Itallo Cunha Pimentel (DB II, ES II, Prog. Internet I)
 
-###Que problema será abordado/resolvido?
+### Que problema será abordado/resolvido?
 
 - Gerenciamento de alunos matrículados em uma escola.
 
-###Como será resolvido o problema escolhido?
+### Como será resolvido o problema escolhido?
 
 - Por meio do desenvolvimento de um sistema web ou mobile que gerencia a releção entre aluno e colégio.
 
-###Qual área?
+### Qual área?
 
 - Educação
 
 ### Qual o possível nome do software?
 
 - Edu Academic
+
+### Protótipo das telas
+
+- [Figma](https://www.figma.com/file/6mkLAuSMQl31SoJJjdNIOC/Edu-Academic?node-id=0%3A1)
