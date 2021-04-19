@@ -23,3 +23,7 @@
 ### Protótipo das telas
 
 - [Figma](https://www.figma.com/file/6mkLAuSMQl31SoJJjdNIOC/Edu-Academic?node-id=0%3A1)
+
+### Product Backlog
+
+- [Product](https://docs.google.com/spreadsheets/d/1j4MP7LYVAJ1kQdjOKnYsNQzIOX6zj9dDPH-xU1M-z2o/edit?usp=sharing)
