@@ -75,14 +75,18 @@ module.exports = {
   */
   pg: {
     client: 'pg',
-    connection: {
-      host: Env.get('DB_HOST', DATABASE_URL.hostname),
-      port: Env.get('DB_PORT',  DATABASE_URL.port),
-      user: Env.get('DB_USER',  DATABASE_URL.username),
-      password: Env.get('DB_PASSWORD', DATABASE_URL.password),
-      database: Env.get('DB_DATABASE', DATABASE_URL.pathname.substr(1)),
-      ssl: false
-    },
-    debug: Env.get('DB_DEBUG', false)
+    connection: 'postgres://rstpsfvxmmvhwf:c2be9f48c4886c714272845d1c2522ac580104849d71d62655f7daae51187dc5@ec2-184-73-198-174.compute-1.amazonaws.com:5432/dbmhls0f586qgb?ssl=false'
   }
+  // pg: {
+  //   client: 'pg',
+  //   connection: {
+  //     host: Env.get('DB_HOST', DATABASE_URL.hostname),
+  //     port: Env.get('DB_PORT',  DATABASE_URL.port),
+  //     user: Env.get('DB_USER',  DATABASE_URL.username),
+  //     password: Env.get('DB_PASSWORD', DATABASE_URL.password),
+  //     database: Env.get('DB_DATABASE', DATABASE_URL.pathname.substr(1)),
+  //     ssl: false
+  //   },
+  //   debug: Env.get('DB_DEBUG', false)
+  // }
 }
