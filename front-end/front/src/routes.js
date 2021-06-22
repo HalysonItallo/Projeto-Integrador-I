@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import NavBar from './components/NavBar'
 import {
   BrowserRouter,
   Route,
@@ -7,22 +6,20 @@ import {
   Redirect
 } from "react-router-dom";
 
-import { Context } from './Context/AuthContext';
+import { Context } from './context/AuthContext';
 
-import ForgotPassword from './pages/ForgotPassword'
-import Login from './pages/Login'
-import Login_p from './pages/Login_p'
-import Home from './pages/Home'
+import Home from './pages/Home';
+import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import Grade from './pages/Grade';
+import Call from './pages/Call';
 
 function CustomRoute({ isPrivate, ...rest }) {
-  const { loading, authenticated } = useContext(Context);
+  const { authenticated } = useContext(Context);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
 
   if (isPrivate && !authenticated) {
-    return <Redirect to="/login" />
+    return <Redirect to="/" />
   }
 
   return <Route {...rest} />;
@@ -31,33 +28,16 @@ function CustomRoute({ isPrivate, ...rest }) {
 function Routes() {
   return(
     <BrowserRouter>
-      <NavBar />
       <Switch>
-        <CustomRoute exact path="/login" component={Login} />
-        <CustomRoute exact path="/login_p" component={Login_p} />
+        <CustomRoute exact path="/call" isPrivate={true} component={Call} />
+        <CustomRoute exact path="/grade" isPrivate={true} component={Grade} />
+        <CustomRoute exact path="/teacher-login" component={Login} />
+        <CustomRoute exact path="/student-login" component={Login} />
         <CustomRoute exact path="/forgot-password" component={ForgotPassword} />
-        <CustomRoute exact path="/home" component={Home} />
+        <CustomRoute exact path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
 };
 
 export default Routes;
-
-/*
-export default function MainRoutes(){
-  return(
-  <Switch>
-    <Route path='/forgotPassword'> 
-      <ForgotPassword /> 
-    </Route>
-    <Route path='/login'> 
-      <Login /> 
-    </Route>
-    <Route path='/'> 
-      <Home/> 
-    </Route>
-  </Switch>
-  );  
-}
-*/

@@ -1,38 +1,53 @@
 import { useState, useEffect } from 'react';
 
-import api from '../../api';
 import history from '../../history';
+import axios from 'axios';
 
 export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState({
+    registration: '',
+    password: ''
+  })
+  
+  const baseUrl = 'https://eduacademic.herokuapp.com';
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (token) {
-      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
     }
-
-    setLoading(false);
   }, []);
   
-  async function handleLogin() {
-    const { data: { token } } = await api.post('/authenticate');
-
-    localStorage.setItem('token', JSON.stringify(token));
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+  function handleLogin(registration, password) {    
+  
+     axios({
+      method: 'post',
+      url: baseUrl+'/authenticate',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+      "registration": registration,
+      "password": password
+      }
+    }).then(function (response) {
+      localStorage.setItem('token', response.data.token);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });;
     setAuthenticated(true);
-    history.push('/users');
+   history.push('/grade');
+    
   }
 
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem('token');
-    api.defaults.headers.Authorization = undefined;
     history.push('/login');
   }
   
-  return { authenticated, loading, handleLogin, handleLogout };
+  return { authenticated, handleLogin, handleLogout };
 }

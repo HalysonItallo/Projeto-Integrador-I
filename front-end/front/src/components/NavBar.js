@@ -1,40 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BiExit } from 'react-icons/bi';
+import { BiArrowBack } from 'react-icons/bi';
 import '../styles/navbar.css'
+import logo from '../assets/icons/icone-test.svg'
 
-export default function NavBar(){
-  const[isOpen, setIsOpen] = useState(false)
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
+export default function NavBar( props ){
 
   return(
-    <nav className="navbar navbar-expand=lg navbar-dark bg-primary">
-      <div className={`${isOpen ? 'show' : ''} collapse navbar-collapse`} id="navbar01">
-        <label class="logo">Edu Academic</label>
+    <nav className="navbar">
+      <div className="logo-container">
+        <img src={logo} alt='Logo'/>
+        <label className="logo-label">Edu Academic</label>
+      </div>
+        
+      {props.canBack && 
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink to="/home" className="nav-link" onClick={handleToggle}><BiExit/> </NavLink>
+            <NavLink to={props.url} className="nav-link">
+              <BiArrowBack color="#000" size={60}/>
+            </NavLink>
           </li>
-        </ul>
-      </div>
-      
+        </ul>}
     </nav>
   )
 }
-
-/* <li className="nav-item">
-            <NavLink to="/home" className="nav-link" onClick={handleToggle}><a href="#"></a> Home </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink to="/login" className="nav-link" onClick={handleToggle}><a href="#"></a> Login </NavLink>
-          </li> 
-          <li className="nav-item">
-            <NavLink to="/forgot-password" className="nav-link" onClick={handleToggle}><a href="#"></a> PorgotPassword </NavLink>
-            <NavLink to="/login" className="nav-link" onClick={handleToggle}><BiExit/> </NavLink>
-          </li>
-*/
 

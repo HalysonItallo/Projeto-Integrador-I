@@ -1,26 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import '../styles/home.css'
+import '../styles/global.css'
+
+import InitialImage from '../assets/img/image-initial-page.png'
+
 
 export default function Home() {
 
-  const[isOpen, setIsOpen] = useState(false)
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
   return(  
-    <div className="home-page">
-        <div className="form">
-        <form className="home-form">
-            <h1>Escolha o tipo de usuário que deseja acessar</h1>
-            
-            <NavLink to="/login_p" className="nav-link" onClick={handleToggle}><button className="prof" type="button">Professor</button></NavLink>
+    <>
+      <div className="wrapper">
+        <NavBar canBack={false}/>
 
-            <NavLink to="/login" className="nav-link" onClick={handleToggle}><button className="aluno" type="button">Aluno</button></NavLink>
+        <div className="content content-center">
+          <form className="home-form">
+              <div>
+                <h1>Escolha o tipo de usuário que deseja acessar</h1>
+                
+                <NavLink to={{pathname: "/teacher-login", 
+                  typeUser: 'Professor'
+                }}>
+                  <button className="btn-select" type="button">Professor</button>
+                </NavLink>
 
-        </form>
+                <NavLink to={{pathname: "/student-login", 
+                  typeUser: 'Aluno'
+                }}>
+                  <button className="btn-select" type="button">Aluno</button>
+                </NavLink>
+              </div>
+
+              <img className="initial-image" src={InitialImage} alt='initial-img'/>
+          </form>
         </div>
-    </div>
+      </div>
+    </>
   );
 }

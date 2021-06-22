@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300);
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #c4dbe0;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+}
+
+.content-center {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-block {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+}
+
+.input-block label {
+  margin-bottom: 8px;
+}
+
+.input-block input,
+.btn-login,
+.btn-submit {
+  border-radius: 5px;
+  width: 100%;
+  height: 45px;
+  border: 1px solid #ccddef;
+  background-color: rgba(196, 196, 196, 0.5);
+  padding: 0 10px;
+  outline: none;
+}
+
+.btn-login,
+.btn-submit {
+  margin-top: 35px;
+  background-color: rgba(22, 199, 154, 0.5);
+  cursor: pointer;
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  height: calc(100vh - 100px);
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". .";
+}

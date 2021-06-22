@@ -1,85 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Comfortaa:300);
+.login-form {
+  width: 50%;
+  background: #F8F1F1;
+  padding: 40px 80px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.form {
-    position: absolute;
-    z-index: 1;
-    background: #F8F1F1;
-    width: 1315px;
-    height: 679px;
-    padding: 45px;
-    text-align: left;
-    border-radius: 30px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-form .input-block input {
-    width: 870px;
-    height: 100px;
-    display: block;
-    margin-top: 20px;
-    border-radius: 15px;
-    border: 1px solid #ccddef;
-    padding: 25px;
-}
-form .input-block label {
-    font-size: 36px;
-    margin: 0 224px 0;
-    
-}
-.form input {
-    font-family: "Comfortaa", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 100px;
-    border: 0;
-    margin: 224px 224px 80px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 30px;
-}
-.form button {
-    font-family: "Comfortaa", sans-serif;
-    outline: 0;
-    background-color: #18cea0;
-    width: 869px;
-    height: 100px;
-    margin: 0 224px 0;
-    border: 0;
-    border-radius: 15px;
-    padding: 15px;
-    color: #13755d;
-    font-size: 20px;
-    -webkit-transition: all 1 ease;
-    transition: all 1 ease;
-    cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-    background: #16C79A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 25px;
-  text-align: center;
-}
-.form .message a {
-  color: #F30623;
-  text-decoration: none;
-  font-size: 25px;
-}
-.form .register-form {
-  display: none;
+.forgot-password-link {
+  margin-top: 10px;
+  align-self: flex-end;
+  color: red;
 }
 
-body {
-  background: #C4DBE0; /* fallback for old browsers */
-  font-family: Comfortaa, sans-serif;
-}

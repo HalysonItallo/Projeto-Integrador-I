@@ -1,35 +1,59 @@
 import React, { useContext, useState } from 'react';
-import { Context } from '../Context/AuthContext';
-import { NavLink } from 'react-router-dom';
+import { Context } from '../context/AuthContext';
+import { NavLink, Redirect } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import '../styles/login.css'
 
-export default function Login() {
-  const { authenticated, handleLogin } = useContext(Context);
-  const[isOpen, setIsOpen] = useState(false)
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
+export default function Login( props ) {
+  const { authenticated, handleLogin, setData } = useContext(Context);
+  const [state, setState] = useState({
+    registration: '',
+    password: ''
+  })
+  
+  
+  function handleChange(e) {
+    setState({ 
+      registration: e.target.value,
+      password: e.target.value
+    });
+  }
+  
+ async function handleSubmit(e) {
+    e.preventDefault();
+     
+    await handleLogin(state.registration, state.password)
   }
 
-  return(
-   <div className="login-page">
-        <div className="form">
-        <form className="login-form">
-            <div className="input-block">
-              <label for="login-matrc">Matrícula do aluno</label>
-              <input type="matricula" id="login-matrc" />
-            </div>
-            <div className="input-block">
-              <label for="login-password">Senha</label>
-              <input type="password" id="login-password" />
-            </div>
-            <button type="button" onClick={handleLogin}>Entrar</button>
-            <p className="message">Problema para entrar? <NavLink to="/forgot-password" className="nav-link" onClick={handleToggle}><a href="#">Esqueci minha senha</a></NavLink></p>
+  
+  if(!authenticated){
+    return(
+      <>
+        <div className="wrapper">
+          <NavBar canBack={true} url='/'/> 
+          <div className='content content-center'>
+            <form className="login-form" onSubmit={handleSubmit} >
+              <div className="input-block">
+                <label htmlFor="loginRegistration">Matrícula do {props.location.typeUser}</label>
+                <input type="matricula" name='registration' id="loginRegistration" onChange={handleChange}/>
+              </div>
+  
+              <div className="input-block">
+                <label htmlFor="loginPassword">Senha</label>
+                <input type="password" name='password' id="loginPassword" onChange={handleChange}/>
+              </div>
             
-        </form>
-        </div>
-    </div>
-  );
+              <button className="btn-login">Entrar</button>
+        
+              <NavLink to="/forgot-password" className="forgot-password-link">Esqueci minha senha</NavLink>
+            </form>
+          </div>
+         </div>
+      </>
+    );
+  }   else{
+    return(
+      <Redirect to="/grade" />
+    );
+  }
 }
- /*            <p className="message">Problema para entrar? <a href="#">Esqueci minha senha</a></p>
- */

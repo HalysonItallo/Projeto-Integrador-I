@@ -1,0 +1,32 @@
+.info-call {
+  height: 400px;
+  background: #f8f1f1;
+  width: 80%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.info-call label {
+  font-size: 26px;
+}
+
+.info-call button {
+  height: 50px;
+  border-radius: 12px;
+  background: #16c79a;
+  font-size: 25px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+}
+
+.info-call button img {
+  margin-left: 40px;
+  height: 40px;
+}
