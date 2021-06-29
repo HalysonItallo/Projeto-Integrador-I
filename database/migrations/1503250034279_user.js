@@ -19,6 +19,7 @@ class UserSchema extends Schema {
       table.string('telephone', 20).notNullable()
       table.string('password', 60).notNullable()
       table.string('profile_picture', 500).notNullable()
+      table.string('type', 20).notNullable()
       table.timestamps()
     })
   }
