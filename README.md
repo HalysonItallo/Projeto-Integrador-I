@@ -31,3 +31,17 @@
 ### 1º sprint
 
 - [sprint](https://drive.google.com/file/d/1ceg7MfaJqCqTzF0eusjOhO3CNwlgKnYI/view?usp=sharing)
+
+### Funcionalidades com regras de negócios
+Boletim:
+O aluno deve ser capaz de ver as suas notas.
+O professor deve ser capaz de criar, editar as notas de um aluno.
+
+Chamada:
+O aluno deve ser capaz de registrar a sua presença na aula de um professor.
+O professor deve ser capaz de abrir uma instância de presença para que os alunos se registrem na aula.
+
+Grade de Horários:
+O aluno deve ser capaz de ver sua grade de horários
+O professor deve ser capaz de ver sua grade de horários de todas as turmas que ele está registrado
+
