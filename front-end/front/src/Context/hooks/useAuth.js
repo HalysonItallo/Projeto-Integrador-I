@@ -1,53 +1,72 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-import history from '../../history';
-import axios from 'axios';
+import history from '../../history'
+import axios from 'axios'
 
 export default function useAuth() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [data, setData] = useState({
-    registration: '',
-    password: ''
-  })
-  
-  const baseUrl = 'https://eduacademic.herokuapp.com';
+  const [authenticated, setAuthenticated] = useState(null)
+  const [token, setToken] = useState(null)
+  const [userId, setUserId] = useState(null)
+  const [userType, setUserType] = useState('')
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
+  const baseUrl = 'https://eduacademic.herokuapp.com'
 
-    if (token) {
-      setAuthenticated(true);
-    }
-  }, []);
-  
-  function handleLogin(registration, password) {    
-  
-     axios({
+  function handleLogin(registration, password) {
+    axios({
       method: 'post',
-      url: baseUrl+'/authenticate',
+      url: baseUrl + '/authenticate',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: {
-      "registration": registration,
-      "password": password
-      }
-    }).then(function (response) {
-      localStorage.setItem('token', response.data.token);
+        registration: registration,
+        password: password,
+      },
     })
-    .catch(function (error) {
-      console.log(error);
-    });;
-    setAuthenticated(true);
-   history.push('/grade');
-    
+      .then(function (response) {
+        if (response.status === 200) {
+          setToken(response.data.token)
+        }
+      })
+      .catch(function (error) {
+        setToken(null)
+        setAuthenticated(false)
+      })
+  }
+
+  useEffect(() => {
+    if (token !== null) {
+      getUser()
+      setAuthenticated(true)
+      history.push('/grade')
+    }
+  }, [token])
+
+  function getUser() {
+    axios({
+      method: 'get',
+      url: baseUrl + '/getProfile',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(function (response) {
+        if (response.status === 200) {
+          setUserId(response.data[0].id)
+          setUserType(response.data[0].type)
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   function handleLogout() {
-    setAuthenticated(false);
-    localStorage.removeItem('token');
-    history.push('/login');
+    setAuthenticated(null)
+    setToken(null)
+    history.push('/')
   }
-  
-  return { authenticated, handleLogin, handleLogout };
+
+  return { authenticated, handleLogin, handleLogout, token, userId, userType }
 }

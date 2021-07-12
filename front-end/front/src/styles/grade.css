@@ -1,0 +1,78 @@
+.content-grade {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-school-subjects {
+  display: flex;
+  height: 40px;
+  width: 20%;
+  background: #dedbdb;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 110px;
+  filter: drop-shadow(10px 5px 14px rgba(0, 0, 0, 0.25));
+}
+
+.info-grade {
+  height: 200px;
+  background: #f8f1f1;
+  width: 80%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 14px 5px 14px rgba(0, 0, 0, 0.25);
+  margin-top: 45px;
+}
+
+.text-grade {
+  font-size: 26px;
+}
+
+.show-grade {
+  display: flex;
+  width: 94%;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.div-content-grade {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.show-info-grade {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.content-grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.content-grade .order-two-months,
+.content-grade .note-two-months {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dedbdb;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+}
+
+.content-grade .note-two-months {
+  background: #16c79a;
+}

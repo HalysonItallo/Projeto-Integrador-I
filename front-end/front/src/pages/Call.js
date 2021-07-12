@@ -7,7 +7,7 @@ import SideBar from '../components/SideBar';
 import iconRight from '../assets/icons/icon-right.png'
 
 
-export default function Home() {
+export default function Call() {
 
   return(  
     <>

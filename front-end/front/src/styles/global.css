@@ -10,7 +10,7 @@
 
 body {
   background-color: #c4dbe0;
-  font-family: "Comfortaa", sans-serif;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 .wrapper {
@@ -68,5 +68,12 @@ body {
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: ". .";
+  grid-template-areas: '. .';
+}
+
+.validate-input {
+  margin-top: 10px;
+  font-size: 15px;
+  align-self: flex-start;
+  color: red;
 }

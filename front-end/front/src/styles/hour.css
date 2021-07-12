@@ -1,0 +1,70 @@
+.content-hour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-hour label {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.content-hour table {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-hour table thead tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.content-hour table thead tr th {
+  background: #16c79a;
+  flex: 1;
+  padding: 10px 2px;
+  border-right: 1px solid black;
+}
+
+.content-hour table thead tr th:first-child {
+  background: #dedbdb;
+  max-width: 8%;
+}
+
+.content-hour table thead tr th:last-child {
+  border-right: none;
+}
+
+.content-hour table tbody tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.content-hour table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.content-hour table tbody tr td {
+  flex: 1;
+  padding: 15px 2px;
+  background: #dedbdb;
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+.content-hour table tbody tr td:last-child {
+  border-right: none;
+}
+
+.content-hour table tbody tr td:first-child {
+  max-width: 8%;
+  background: #16c79a;
+}

@@ -1,5 +1,5 @@
-.forgot-form {
-  background: #F8F1F1;
+.form {
+  background: #f8f1f1;
   padding: 40px 80px;
   width: 50%;
   border-radius: 20px;
@@ -9,13 +9,12 @@
   flex-direction: column;
 }
 
-.forgot-info h1 {
+.info h1 {
   font-size: 28px;
 }
 
-.forgot-info p {
+.info p {
   margin: 20px 0px;
   text-align: center;
   font-size: 20px;
 }
-
